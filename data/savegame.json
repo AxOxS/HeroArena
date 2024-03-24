@@ -1,0 +1,37 @@
+{
+    "player": {
+        "name": "Lord",
+        "health": 120,
+        "max_health": 120,
+        "mana": 110,
+        "max_mana": 110,
+        "level": 3,
+        "status_effects": [],
+        "damage": 1004,
+        "defense": 7,
+        "experience": 250,
+        "spells": {
+            "Fireball": {
+                "damage": [
+                    15,
+                    25
+                ],
+                "mana_cost": 15,
+                "cooldown": 3
+            },
+            "Heal": {
+                "heal_amount": [
+                    15,
+                    25
+                ],
+                "mana_cost": 15,
+                "cooldown": 3
+            }
+        },
+        "inventory": {
+            "Health Potion": 3,
+            "Mana Potion": 3
+        }
+    },
+    "enemies": []
+}
