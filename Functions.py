@@ -26,18 +26,44 @@ def load_game():
             enemies = []
             if 'enemies' in save_data:
                 enemies = [Enemy.from_dict(enemy_data) for enemy_data in save_data["enemies"]]
-        print_running_info("Game loaded!")
+        print("Game loaded!")
         return player, enemies
     except FileNotFoundError:
-        print_running_info("No save game found.")
+        print("No save game found.")
         return None, None
     
 def create_character():
     print("Create Your Character")
-    name = input("Enter character name: ")
-    health = int(input("Enter health points: "))
-    mana = int(input("Enter mana points: "))
+    
+    while True:
+        name = input("Enter character name: ")
+        if name.strip():
+            break
+        else:
+            print("Name cannot be empty.")
+    
+    while True:
+        try:
+            health = int(input("Enter health points: "))
+            if health > 0:
+                break
+            else:
+                print("Health points must be a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    
+    while True:
+        try:
+            mana = int(input("Enter mana points: "))
+            if mana > 0:
+                break
+            else:
+                print("Mana points must be a positive integer.")
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
+    
     return Player(name, health, mana)
+
     
 def get_random_enemies(num_enemies):
     with open("data/enemies.json", "r") as file:
@@ -71,13 +97,21 @@ def start_new_round(player1, enemies):
     while player1.health > 0 and any(enemy.health > 0 for enemy in enemies):
         os.system('cls' if os.name == 'nt' else 'clear')
         display_status(player1, enemies)
+        
         # Player's turn
         print("\n" + "=" * 20 + " Player's Turn " + "=" * 20)
-        print_running_info("Choose your action:")
+        print("Choose your action:")
         print_running_info("1: Attack")
-        print_running_info("2: Cast Spell")
-        print_running_info("3: Use Item")
-        choice = input("Enter your choice: ")
+        print("2: Cast Spell")
+        print("3: Use Item")
+        
+        while True:
+            choice = input("Enter your choice: ")
+            if choice in ["1", "2", "3"]:
+                break
+            else:
+                print("Invalid choice! Please enter 1, 2, or 3.")
+                
         if choice == "1":
             target = random.choice(enemies)
             player1.attack(target)
@@ -86,32 +120,37 @@ def start_new_round(player1, enemies):
                 enemies.remove(target)
                 player1.gain_experience(50)
         elif choice == "2":
-            print_running_info("Choose a spell:")
+            print("Choose a spell:")
             for i, spell in enumerate(player1.spells.keys(), 1):
-                print_running_info(f"{i}: {spell}")
-            spell_choice = input("Enter your choice: ")
-            if spell_choice.isdigit() and 1 <= int(spell_choice) <= len(player1.spells):
-                spell_name = list(player1.spells.keys())[int(spell_choice) - 1]
-                target = random.choice(enemies)
-                player1.cast_spell(target, spell_name)
-                if target.health <= 0:
-                    #print_running_info(f"{target.name} has been defeated!")
-                    enemies.remove(target)
-                    player1.gain_experience(50)
-            else:
-                print_running_info("Invalid choice.")
+                print(f"{i}: {spell}")
+            while True:
+                spell_choice = input("Enter your choice: ")
+                if spell_choice.isdigit() and 1 <= int(spell_choice) <= len(player1.spells):
+                    break
+                else:
+                    print("Invalid choice! Please enter a valid spell number.")
+                    
+            spell_name = list(player1.spells.keys())[int(spell_choice) - 1]
+            target = random.choice(enemies)
+            player1.cast_spell(target, spell_name)
+            if target.health <= 0:
+                #print_running_info(f"{target.name} has been defeated!")
+                enemies.remove(target)
+                player1.gain_experience(50)
         elif choice == "3":
-            print_running_info("Choose an item:")
+            print("Choose an item:")
             for i, item in enumerate(player1.inventory.keys(), 1):
-                print_running_info(f"{i}: {item}")
-            item_choice = input("Enter your choice: ")
-            if item_choice.isdigit() and 1 <= int(item_choice) <= len(player1.inventory):
-                item_name = list(player1.inventory.keys())[int(item_choice) - 1]
-                player1.use_item(item_name, player1)
-            else:
-                print_running_info("Invalid choice!")
-        else:
-            print_running_info("Invalid choice!")
+                print(f"{i}: {item}")
+                
+            while True: 
+                item_choice = input("Enter your choice: ")
+                if item_choice.isdigit() and 1 <= int(item_choice) <= len(player1.inventory):
+                    break
+                else:
+                    print("Invalid choice! Please enter a valid item number.")
+                    
+            item_name = list(player1.inventory.keys())[int(item_choice) - 1]
+            player1.use_item(item_name, player1)
         
         if not enemies:
             print_running_info("You have defeated all the enemies!")
@@ -136,11 +175,17 @@ def start_new_round(player1, enemies):
             os.remove(save_path)
             print_running_info("Save game deleted.")
     else:
-        print_running_info("Round ended.")
-        choice = input("Do you want to start another round? (yes/no): ")
-        if choice.lower() == "yes":
+        print("Round ended.")
+        while True:
+            choice = input("Do you want to start another round? (yes/no): ")
+            if choice in ["yes", "no"]:
+                break
+            else:
+                print("Invalid choice! Please enter 'yes' or 'no'.")
+                
+        if choice == "yes":
             start_new_round(player1, get_random_enemies(random.randint(1, 5)))
         else:
             print("\n" + "=" * 20 + " Game Over " + "=" * 20)
-            print_running_info("Thanks for playing!")
+            print("Thanks for playing!")
             save_game(player1, enemies)

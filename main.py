@@ -2,9 +2,16 @@ from functions import start_new_game, start_new_round, load_game
 
 if __name__ == "__main__":
     print("Welcome to the RPG Game!")
-    print("1. New Game")
-    print("2. Load Game")
-    choice = input("Enter your choice: ")
+    
+    while True:
+        print("1. New Game")
+        print("2. Load Game")
+        choice = input("Enter your choice: ")
+        
+        if choice in ("1", "2"):
+            break
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
     
     if choice == "1":
         start_new_game()
