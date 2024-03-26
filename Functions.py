@@ -102,7 +102,7 @@ def start_new_round(player1, enemies):
         # Player's turn
         print("\n" + "=" * 20 + " Player's Turn " + "=" * 20)
         print("Choose your action:")
-        print_running_info("1: Attack")
+        print("1: Attack")
         print("2: Cast Spell")
         print("3: Use Item")
         
