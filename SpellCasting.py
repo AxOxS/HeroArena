@@ -3,7 +3,7 @@ from util import print_running_info
 
 class SpellCasting:
     def __init__(self):
-        self.spells = {"Fireball": {"damage": (15, 25), "mana_cost": 15, "cooldown": 3},
+        self.spells = {"Fireball": {"damage": (1500, 25000), "mana_cost": 15, "cooldown": 3},
                        "Heal": {"heal_amount": (15, 25), "mana_cost": 15, "cooldown": 3}}
         
     def cast_spell(self, target, spell_name):

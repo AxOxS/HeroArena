@@ -70,4 +70,4 @@ class Character:
             data["level"])
         
     def __del__(self):
-        print_running_info(f"{self.name} has been deleted.")
+        pass

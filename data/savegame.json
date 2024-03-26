@@ -1,20 +1,22 @@
 {
     "player": {
-        "name": "lol",
-        "health": 1018,
-        "max_health": 1030,
-        "mana": 1015,
-        "max_mana": 1015,
-        "level": 4,
-        "status_effects": [],
-        "damage": 1006,
-        "defense": 8,
-        "experience": 350,
+        "name": "Ax",
+        "health": 981,
+        "max_health": 1010,
+        "mana": 1005,
+        "max_mana": 1005,
+        "level": 2,
+        "status_effects": [
+            "Fireball"
+        ],
+        "damage": 1002,
+        "defense": 6,
+        "experience": 150,
         "spells": {
             "Fireball": {
                 "damage": [
-                    15,
-                    25
+                    1500,
+                    25000
                 ],
                 "mana_cost": 15,
                 "cooldown": 3
@@ -29,7 +31,7 @@
             }
         },
         "inventory": {
-            "Health Potion": 3,
+            "Health Potion": 2,
             "Mana Potion": 3
         }
     },

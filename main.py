@@ -1,4 +1,4 @@
-from Functions import *
+from functions import start_new_game, start_new_round, load_game
 
 if __name__ == "__main__":
     print("Welcome to the RPG Game!")
