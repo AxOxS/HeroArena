@@ -1,4 +1,5 @@
 import random
+from util import print_running_info
 
 class SpellCasting:
     def __init__(self):
@@ -13,17 +14,17 @@ class SpellCasting:
                     self.mana -= spell["mana_cost"]
                     if "damage" in spell:
                         damage = max(0, random.randint(*spell["damage"]) - target.defense)
-                        print(f"{self.name} casts {spell_name} on {target.name} for {damage} damage!")
+                        print_running_info(f"{self.name} casts {spell_name} on {target.name} for {damage} damage!")
                         target.take_damage(damage)
                     elif "heal_amount" in spell:
                         heal_amount = random.randint(*spell["heal_amount"])
-                        print(f"{self.name} casts {spell_name} on themselves, healing {heal_amount} HP!")
+                        print_running_info(f"{self.name} casts {spell_name} on themselves, healing {heal_amount} HP!")
                         self.health = min(self.health + heal_amount, self.max_health)
                     self.apply_status_effect(spell_name)
-                    print(f"{self.name}'s {spell_name} is on cooldown for {spell['cooldown']} turns.")
+                    print_running_info(f"{self.name}'s {spell_name} is on cooldown for {spell['cooldown']} turns.")
                 else:
-                    print(f"{self.name}'s {spell_name} is still cooldown!")
+                    print_running_info(f"{self.name}'s {spell_name} is still cooldown!")
             else:
-                print(f"{self.name} does not have enough mana to cast {spell_name}!")
+                print_running_info(f"{self.name} does not have enough mana to cast {spell_name}!")
         else:
-            print(f"{self.name} does not know the spell {spell_name}!")
+            print_running_info(f"{self.name} does not know the spell {spell_name}!")

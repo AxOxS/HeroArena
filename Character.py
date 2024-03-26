@@ -1,4 +1,5 @@
 import random
+from util import print_running_info
 
 class Character:
     def __init__(self, name, health, mana, level = 1):
@@ -14,28 +15,28 @@ class Character:
     
     def take_damage(self, damage):
         self.health -= damage
-        print(f"{self.name} takes {damage} damage. {self.name}'s health: {self.health}/{self.max_health}")
+        print_running_info(f"{self.name} takes {damage} damage. {self.name}'s health: {self.health}/{self.max_health}")
         if self.health <= 0:
-            print(f"{self.name} has been defeated!")
+            print_running_info(f"{self.name} has been defeated!")
             del self
         
     def attack(self, target):
         damage = max(0, random.randint(self.damage - 3, self.damage + 3) - target.defense)
-        print(f"{self.name} attacks {target.name} for {damage} damage!")
+        print_running_info(f"{self.name} attacks {target.name} for {damage} damage!")
         target.take_damage(damage)
         
     def apply_status_effect(self, effect):
         if effect not in self.status_effects:
             self.status_effects.append(effect)
-            print(f"{self.name} is now affected by {effect}!")
+            print_running_info(f"{self.name} is now affected by {effect}!")
             if effect == "Poison":
-                print(f"{self.name} takes damage from poison!")
+                print_running_info(f"{self.name} takes damage from poison!")
                 self.take_damage(random.randint(1, 10))
                 
     def remove_status_effect(self, effect):
         if effect in self.status_effects:
             self.status_effects.remove(effect)
-            print(f"{self.name} is no longer affected by {effect}!")
+            print_running_info(f"{self.name} is no longer affected by {effect}!")
             
     def level_up(self):
         self.level += 1
@@ -45,7 +46,7 @@ class Character:
         self.mana = self.max_mana
         self.damage += 2
         self.defense += 1
-        print(f"{self.name} has leveled up to level {self.level}!")
+        print_running_info(f"{self.name} has leveled up to level {self.level}!")
         
     def to_dict(self):
         return {
@@ -69,4 +70,4 @@ class Character:
             data["level"])
         
     def __del__(self):
-        print(f"{self.name} has been deleted.")
+        print_running_info(f"{self.name} has been deleted.")

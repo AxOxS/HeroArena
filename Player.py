@@ -1,6 +1,7 @@
 from SpellCasting import SpellCasting
 from InventoryManager import InventoryManager
 from Character import Character
+from util import print_running_info
 
 class Player(Character, SpellCasting, InventoryManager):
     def __init__(self, name, health, mana, level=1):
@@ -11,7 +12,7 @@ class Player(Character, SpellCasting, InventoryManager):
         
     def gain_experience(self, amount):
         self.experience += amount
-        print(f"{self.name} gains {amount} experience!")
+        print_running_info(f"{self.name} gains {amount} experience!")
         if self.experience >= 100 * self.level:
             self.level_up()
             

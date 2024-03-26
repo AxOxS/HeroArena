@@ -1,5 +1,6 @@
 from Character import Character
 import random
+from util import print_running_info
 
 class Enemy(Character):
     def __init__(self, name, health, mana, damage, defense, level = 1):
@@ -9,7 +10,7 @@ class Enemy(Character):
         
     def attack(self, target):
         damage = max(0, random.randint(self.damage - 3, self.damage + 3) - target.defense)
-        print(f"{self.name} attacks {target.name} for {damage} damage!")
+        print_running_info(f"{self.name} attacks {target.name} for {damage} damage!")
         target.take_damage(damage)
         if random.random() < 0.2:
             self.apply_status_effect("Poison")
