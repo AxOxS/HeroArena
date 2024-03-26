@@ -1,18 +1,15 @@
 {
     "player": {
-        "name": "Ax",
-        "health": 1031,
-        "max_health": 1031,
-        "mana": 1030,
-        "max_mana": 1030,
-        "level": 7,
-        "status_effects": [
-            "Heal",
-            "Fireball"
-        ],
-        "damage": 1010,
-        "defense": 10,
-        "experience": 600,
+        "name": "Testinis",
+        "health": 10000,
+        "max_health": 10020,
+        "mana": 1010,
+        "max_mana": 1010,
+        "level": 3,
+        "status_effects": [],
+        "damage": 1004,
+        "defense": 7,
+        "experience": 250,
         "spells": {
             "Fireball": {
                 "damage": [
@@ -32,8 +29,8 @@
             }
         },
         "inventory": {
-            "Health Potion": 1,
-            "Mana Potion": 2
+            "Health Potion": 3,
+            "Mana Potion": 3
         }
     },
     "enemies": []

@@ -81,18 +81,19 @@ def display_status(player, enemies):
     for enemy in enemies:
         print(f"{enemy.name} (Level {enemy.level}): Health: {enemy.health}/{enemy.max_health}")
     print("\n" + "=" * 78 + "\n")
+
+def create_enemies():
+    num_enemies = random.randint(1, 5)
+    enemies_data = get_random_enemies(num_enemies)
+    return [Enemy(enemy["name"], enemy["health"], enemy["mana"], enemy["damage"], enemy["defense"], enemy["level"]) for enemy in enemies_data]
     
 def start_new_game():
     player1 = create_character()
-    num_enemies = random.randint(1, 5)
-    enemies_data = get_random_enemies(num_enemies)
-    enemies = [Enemy(enemy["name"], enemy["health"], enemy["mana"], enemy["damage"], enemy["defense"], enemy["level"]) for enemy in enemies_data]
+    enemies = create_enemies()
     start_new_round(player1, enemies)
 
 def start_new_round(player1, enemies):
-    num_enemies = random.randint(1, 5)
-    enemies_data = get_random_enemies(num_enemies)
-    enemies = [Enemy(enemy["name"], enemy["health"], enemy["mana"], enemy["damage"], enemy["defense"], enemy["level"]) for enemy in enemies_data]
+    enemies = create_enemies()
     
     while player1.health > 0 and any(enemy.health > 0 for enemy in enemies):
         os.system('cls' if os.name == 'nt' else 'clear')
