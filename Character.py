@@ -67,3 +67,6 @@ class Character:
             data["health"], 
             data["mana"], 
             data["level"])
+        
+    def __del__(self):
+        print(f"{self.name} has been deleted.")
