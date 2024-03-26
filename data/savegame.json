@@ -1,15 +1,15 @@
 {
     "player": {
-        "name": "Lord",
-        "health": 120,
-        "max_health": 120,
-        "mana": 110,
-        "max_mana": 110,
-        "level": 3,
+        "name": "j",
+        "health": -14,
+        "max_health": 10,
+        "mana": 1,
+        "max_mana": 1,
+        "level": 1,
         "status_effects": [],
-        "damage": 1004,
-        "defense": 7,
-        "experience": 250,
+        "damage": 1000,
+        "defense": 5,
+        "experience": 50,
         "spells": {
             "Fireball": {
                 "damage": [
@@ -33,5 +33,7 @@
             "Mana Potion": 3
         }
     },
-    "enemies": []
+    "enemies": [
+
+    ]
 }

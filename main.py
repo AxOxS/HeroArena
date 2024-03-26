@@ -1,6 +1,6 @@
 from Functions import *
 
-def main():
+if __name__ == "__main__":
     print("Welcome to the RPG Game!")
     print("1. New Game")
     print("2. Load Game")
@@ -18,5 +18,3 @@ def main():
     else:
         print("Invalid choice.")
 
-if __name__ == "__main__":
-    main()

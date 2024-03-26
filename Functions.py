@@ -42,10 +42,6 @@ def get_random_enemies(num_enemies):
     with open("data/enemies.json", "r") as file:
         enemy_data = json.load(file)
         enemies_data = random.sample(enemy_data["enemies"], num_enemies)
-        # enemies = []
-        # for enemy_data in enemies_data:
-        #     enemies.append(Enemy(enemy_data["name"], enemy_data["health"], enemy_data["mana"], enemy_data["damage"], enemy_data["defense"], enemy_data["level"]))
-        # return enemies
         return enemies_data
 
 def display_status(player, enemies):
