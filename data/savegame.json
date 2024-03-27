@@ -1,0 +1,37 @@
+{
+    "player": {
+        "name": "Ax",
+        "health": 125,
+        "max_health": 125,
+        "mana": 110,
+        "max_mana": 110,
+        "level": 2,
+        "status_effects": [],
+        "damage": 1005,
+        "defense": 10,
+        "experience": 50,
+        "spells": {
+            "Fireball": {
+                "damage": [
+                    100,
+                    1000
+                ],
+                "mana_cost": 20,
+                "cooldown": 3
+            },
+            "Heal": {
+                "heal_amount": [
+                    1,
+                    100
+                ],
+                "mana_cost": 20,
+                "cooldown": 3
+            }
+        },
+        "inventory": {
+            "Health Potion": 10,
+            "Mana Potion": 10
+        }
+    },
+    "enemies": []
+}
