@@ -7,9 +7,9 @@
         "max_mana": 110,
         "level": 2,
         "status_effects": [],
-        "damage": 1005,
-        "defense": 10,
-        "experience": 50,
+        "damage": 1000,
+        "defense": 5,
+        "experience": 100,
         "spells": {
             "Fireball": {
                 "damage": [
