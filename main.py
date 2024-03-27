@@ -31,4 +31,3 @@ if __name__ == "__main__":
             start_new_game()
         else:
             start_new_round(player1, enemies)
-

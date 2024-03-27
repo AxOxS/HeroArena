@@ -71,3 +71,6 @@ class Character:
         
     def __del__(self):
         pass
+    
+    def get_defense(self):
+        return self.defense
