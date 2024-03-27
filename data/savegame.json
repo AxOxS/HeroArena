@@ -1,15 +1,15 @@
 {
     "player": {
         "name": "Testinis",
-        "health": 9838,
-        "max_health": 10010,
-        "mana": 1015,
-        "max_mana": 1015,
-        "level": 4,
+        "health": 9800,
+        "max_health": 9866,
+        "mana": 1030,
+        "max_mana": 1030,
+        "level": 7,
         "status_effects": [],
         "damage": 1002,
         "defense": 6,
-        "experience": 350,
+        "experience": 50,
         "spells": {
             "Fireball": {
                 "damage": [
@@ -30,7 +30,7 @@
         },
         "inventory": {
             "Health Potion": 0,
-            "Mana Potion": 3
+            "Mana Potion": 2
         }
     },
     "enemies": []

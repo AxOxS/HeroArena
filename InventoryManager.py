@@ -1,6 +1,4 @@
-#InventoryManager klasė/brėžinys, inkapsuliacijos principu valdo žaidėjo inventory (Prie inventory data prieinam use_item metodu). Ši klasė nėra nei super, nei sub klasė, o
-#tiesiog atskira klasė, kuria naudojasi Player klasė.
-
+#InventoryManager klasė/brėžinys, inkapsuliacijos principu valdo žaidėjo inventory (Prie inventory data prieinam use_item metodu).
 #Importuojami reikalingi moduliai
 import random
 from util import print_running_info

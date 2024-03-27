@@ -1,5 +1,5 @@
 #SpellCasting klasė inkapsuliacijos principu (datos ir metodu "surišimas" su klase. Inkapsuliuoti metodai, duomenys, prieinami tik per klasės objektą, tai padeda išvengti netyčinių
-#duomenų pakeitimų, ar metodų iškvietimų, kurie gali sugadinti programos veikimą. Ši klasė nėra nei super, nei sub klasė, o tiesiog atskira klasė, kurią naudoja Player klasė.)
+#duomenų pakeitimų, ar metodų iškvietimų, kurie gali sugadinti programos veikimą.)
 
 #Importuojami reikalingi moduliai
 import random

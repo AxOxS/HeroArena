@@ -73,7 +73,7 @@ def get_random_enemies(num_enemies):
 
 def display_status(player, enemies):
     print("\n" + "=" * 35 + " Status " + "=" * 35)
-    print(f"\n{player.name} (Level {player.level}): Health: {player.health}/{player.max_health}, Mana: {player.mana}/{player.max_mana}, Experience: {player.experience}/{player.level * 100}\n")
+    print(f"\n{player.name} (Level {player.level}): Health: {player.health}/{player.max_health}, Mana: {player.mana}/{player.max_mana}, Experience: {player.get_experience()}/{player.level * 100}\n")
     print("Inventory:")
     for item, quantity in player.inventory.items():
         print(f"{item}: {quantity}")
