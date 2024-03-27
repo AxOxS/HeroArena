@@ -12,7 +12,7 @@ def print_running_info(text):
             #printas spausdina kiekvieną simbolį iš eilės, po simbolio nepradėdanas naujos eilutės.
             #Visi simobliai spausdinami vienas po kito, nelaukiant kol buferis užsipildys iki tam tikros ribos (Šioje situacijoje, jeigu buferis būtų aktyvus - 
             # sistema palauktų, kol visa eilutė simbolių užsikrautų ir tik tada parodytų ją vartotojui. Todėl apeinam buferį, kad galėtume matytu spausdinimą realiuoju laiku).
-            print(char, end = "", flush = False)
+            print(char, end = "", flush = True)
             time.sleep(0.05)
         #Kai eilutės simboliai išspausdinti, spausdinama nauja eilutė.
         print()

@@ -151,7 +151,7 @@ def start_new_round(player1, enemies):
                     print("Invalid choice! Please enter a valid item number.")
                     
             item_name = list(player1.inventory.keys())[int(item_choice) - 1]
-            player1.use_item(item_name, player1)
+            player1.use_item(item_name)
         
         if not enemies:
             print_running_info("You have defeated all the enemies!")
