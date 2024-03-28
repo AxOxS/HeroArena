@@ -1,15 +1,15 @@
 {
     "player": {
-        "name": "Ax",
+        "name": "Testinis",
         "health": 125,
         "max_health": 125,
         "mana": 110,
         "max_mana": 110,
         "level": 2,
         "status_effects": [],
-        "damage": 1000,
-        "defense": 5,
-        "experience": 100,
+        "damage": 1005,
+        "defense": 10,
+        "experience": 50,
         "spells": {
             "Fireball": {
                 "damage": [
